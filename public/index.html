@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="todoApp">
+	<head>
+		<meta charset="utf-8">
+		<meta name="view-port" content="width=device-width, initial-scale=1"> <!-- for mobile viewport -->
+		
+		<title>todo!</title>
+		
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		
+       
+        </head>
+	
+<body ng-controller="mainController">
+	<div class="container">
+
+		<h1>These are my ToDos! {{todos.length}}</h1>
+
+
+		<div ng-repeat="todo in todos">
+			<label>
+			<input type="checkbox" ng-click="deleteTodo(todo._id)">{{todo.text}}
+		    </label>
+
+		</div>
+
+
+		<!-- form to create new todos -->
+
+		<form >
+			<input type="text" class="form-control input-lg text-center" placeholder="This is my first todo" ng-model="formData.text">
+			<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add a new one!</button>
+		</form>
+
+	</div>
+
+
+     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.js"></script>
+     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular-resource.js"></script>
+     <script type="text/javascript" src="/app.js"></script>
+     <script type="text/javascript" src="/todo.js"></script>
+
+
+</body>
+</html>

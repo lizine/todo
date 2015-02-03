@@ -29,12 +29,9 @@ text : String
 
 });
 
-//listen to port 8080
 
-app.listen(8080);
-console.log("listening on port 8080");
 
-//routes
+//routes -----------------------
 
 // RESTful api
 //get all todos
@@ -80,7 +77,7 @@ app.post('/api/todos', function(req,res){
 
 //delete a todo
 
-app.delete('/app/todos:todo_id', function(req,res){
+app.delete('/api/todos/:todo_id', function(req,res){
 
 	 Todo.remove({
 		_id : req.params.todo_id
@@ -99,4 +96,14 @@ app.delete('/app/todos:todo_id', function(req,res){
 	});
 });
 
+//application ---
 
+app.get('*', function(req,res){
+	res.sendfile('./public/index.html'); //loas index.html single view file
+
+});
+
+//listen to port 8080
+
+app.listen(8080);
+console.log("listening on port 8080");
